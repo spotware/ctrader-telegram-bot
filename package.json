@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/spotware/ctrader-telegram-bot#readme",
   "dependencies": {
+    "bluebird": "^3.3.4",
     "body-parser": "^1.15.0",
     "connect-js-api": "git+https://github.com/spotware/connect-js-api.git",
     "ejs": "^2.4.1",
