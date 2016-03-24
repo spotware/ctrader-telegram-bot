@@ -4,18 +4,22 @@
   "description": "Telegram bot @cTraderBot using Spotware Connect API for trading operations",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "start": "node index.js",
+    "test": "./node_modules/.bin/_mocha -u tdd -R spec"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spotware/ctrader-telegram-bot.git"
+    "url": "https://github.com/spotware/ctrader-telegram-bot.git"
   },
   "keywords": [
     "ctrader",
-    "telegram",
+    "Telegram",
     "bot",
+    "Telegram bot",
+    "nodeJS",
     "trading",
-    "spotware"
+    "spotware",
+    "Heroku"
   ],
   "author": "Spotware Systems <connect@spotware.com>",
   "license": "Apache-2.0",
