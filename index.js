@@ -31,7 +31,6 @@ var oauth2 = require('simple-oauth2')({
 });
 
 var cTraderBot = new bot(token, webhookUrl);
-cTraderBot.getUpdates().then(console.log);
 
 // engine to render HTML
 app.engine('.html', ejs.__express);
@@ -88,17 +87,19 @@ app.get('/callback', function (req, res) {
 // route: concise way to group all HTTP methods for a path
 app.route('/')
     .get(function(req, res) {
-        // console.log("you GET")
-        res.render('index')
+        console.log("you GET");
+        res.render('index');
     })
     .post(function(req, res) {
+        console.log("you POST");
         // send back to end req-res cycle
         res.json('okay, received\n');
         // robot handle as middleware for POST
-        cTraderBot.handle(req, res)
+        cTraderBot.handle(req, res);
     })
     .put(function(req, res) {
-        res.send("you just called PUT\n")
+        console.log("you PUT");
+        res.send("you just called PUT\n");
     })
 
 
