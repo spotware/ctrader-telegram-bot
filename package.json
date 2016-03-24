@@ -35,7 +35,9 @@
     "lomath": "^0.3.0",
     "morgan": "^1.7.0",
     "multer": "^1.1.0",
+    "node-rest-client": "^1.8.0",
     "simple-oauth2": "^0.5.1",
-    "telegram-bot-bootstrap": "0.0.15"
+    "telegram-bot-bootstrap": "0.0.15",
+    "tls": "0.0.1"
   }
 }
