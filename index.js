@@ -9,7 +9,7 @@ var ejs = require('ejs');
 var bodyParser = require('body-parser');
 var multer = require('multer');
 // telegram bot
-var bot = require('telegram-bot-bootstrap');
+var bot = require(__dirname + '/lib/bot.js');
 
 // global settings
 var token = process.env.TOKEN || 'your example Telegram Bot token';
@@ -76,7 +76,7 @@ app.get('/callback', function (req, res) {
             }
             token = oauth2.accessToken.create(result);
             console.log("token= " + token);
-            //cTraderBot.saveToken(token, state);
+            cTraderBot.saveToken(token, state);
             res.render('index');
         }
     } else {
@@ -87,19 +87,17 @@ app.get('/callback', function (req, res) {
 // route: concise way to group all HTTP methods for a path
 app.route('/')
     .get(function(req, res) {
-        console.log("you GET");
-        res.render('index');
+        // console.log("you GET")
+        res.render('index')
     })
     .post(function(req, res) {
-        console.log("you POST");
         // send back to end req-res cycle
         res.json('okay, received\n');
         // robot handle as middleware for POST
-        cTraderBot.handle(req, res);
+        cTraderBot.handle(req, res)
     })
     .put(function(req, res) {
-        console.log("you PUT");
-        res.send("you just called PUT\n");
+        res.send("you just called PUT\n")
     })
 
 
