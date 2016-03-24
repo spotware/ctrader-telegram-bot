@@ -1,4 +1,5 @@
 // dependencies
+var url = require('url');
 // express
 var _ = require('lomath');
 var express = require('express');
@@ -50,7 +51,7 @@ app.use(bodyParser.json());
 app.get('/auth', function (req, res) {
     // Authorization uri definition
     var authorizationUri = oauth2.authCode.authorizeURL({
-        redirect_uri: webhookUrl + '/callback',
+        redirect_uri: url.resolve(webhookUrl, '/callback'),
         access_type: 'online',
         approval_prompt: 'auto',
         scope: 'trading',
@@ -67,7 +68,7 @@ app.get('/callback', function (req, res) {
     if (code && state) {
         oauth2.authCode.getToken({
             code: code,
-            redirect_uri: webhookUrl + '/callback'
+            redirect_uri: url.resolve(webhookUrl, '/callback')
         }, saveToken);
 
         function saveToken(error, result) {
