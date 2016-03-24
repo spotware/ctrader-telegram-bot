@@ -1,0 +1,37 @@
+{
+  "name": "ctrader-telegram-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot @cTraderBot using Spotware Connect API for trading operations",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spotware/ctrader-telegram-bot.git"
+  },
+  "keywords": [
+    "ctrader",
+    "telegram",
+    "bot",
+    "trading",
+    "spotware"
+  ],
+  "author": "Spotware Systems <connect@spotware.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/spotware/ctrader-telegram-bot/issues"
+  },
+  "homepage": "https://github.com/spotware/ctrader-telegram-bot#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "connect-js-api": "git+https://github.com/spotware/connect-js-api.git",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "lomath": "^0.3.0",
+    "morgan": "^1.7.0",
+    "multer": "^1.1.0",
+    "simple-oauth2": "^0.5.1",
+    "telegram-bot-bootstrap": "0.0.15"
+  }
+}
