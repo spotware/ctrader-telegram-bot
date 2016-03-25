@@ -31,7 +31,7 @@ var oauth2 = require('simple-oauth2')({
     authorizationPath: '/oauth/v2/auth'
 });
 
-//var cTraderBot = new bot(token, webhookUrl);
+var cTraderBot = new bot(token, webhookUrl);
 
 // engine to render HTML
 app.engine('.html', ejs.__express);
