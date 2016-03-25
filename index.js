@@ -76,7 +76,6 @@ app.get('/callback', function (req, res) {
                 console.log('Access Token Error', error.message);
             }
             token = oauth2.accessToken.create(result);
-            console.log("token= " + token);
             cTraderBot.saveToken(token, state);
             res.render('index');
         }
