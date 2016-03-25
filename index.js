@@ -3,7 +3,7 @@ var url = require('url');
 // express
 var _ = require('lomath');
 var express = require('express');
-var app = express();
+var app = module.exports = express();
 // express middlewares
 var morgan = require('morgan');
 var ejs = require('ejs');
@@ -84,6 +84,14 @@ app.get('/callback', function (req, res) {
         res.render('index');
     }
 });
+/*
+app.get('/test', function(req, res) {
+        console.log("******************");
+        var data = fs.readFileSync("test/accounts.json");
+        var jsonContent = JSON.parse(data);
+        console.log(jsonContent);
+        res.render('accounts', jsonContent)
+});*/
 
 // route: concise way to group all HTTP methods for a path
 app.route('/')
