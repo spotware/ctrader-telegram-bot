@@ -12,21 +12,20 @@ var multer = require('multer');
 // telegram bot
 var bot = require(__dirname + '/lib/bot.js');
 //redis
-var redis = require('redis').createClient(process.env.REDIS_URL);
-redis.on("error", function (err) {
-    console.log("Error " + err);
-});
+var redis = require('redis');
 
 // global settings
 var token = process.env.TOKEN || 'your example Telegram Bot token';
 var webhookUrl = process.env.WEBHOOK || 'your app webhook url';
 var clientID = process.env.CLIENT_ID || 'your Spotware Connect Client Public ID';
 var clientSecret = process.env.CLIENT_SECRET || 'your Spotware Connect Client Secret';
+var redisUrl = process.env.REDIS_URL || 'A redis instance URL for your app';
 
 console.log("token=" + token);
 console.log("webhookUrl=" + webhookUrl);
 console.log("clientID=" + clientID);
 console.log("clientSecret=" + clientSecret);
+console.log("redisUrl=" + redisUrl);
 
 var oauth2 = require('simple-oauth2')({
     clientID: clientID,
@@ -36,7 +35,12 @@ var oauth2 = require('simple-oauth2')({
     authorizationPath: '/oauth/v2/auth'
 });
 
-var cTraderBot = new bot(app, token, webhookUrl);
+var redisClient = redis.createClient(process.env.REDIS_URL);
+redisClient.on("error", function (err) {
+    console.log("Error " + err);
+});
+
+var cTraderBot = new bot(app, redisClient, token, webhookUrl);
 
 // engine to render HTML
 app.engine('.html', ejs.__express);
