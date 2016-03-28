@@ -3,7 +3,7 @@ var url = require('url');
 // express
 var _ = require('lomath');
 var express = require('express');
-var app = module.exports = express();
+var app = express();
 // express middlewares
 var morgan = require('morgan');
 var ejs = require('ejs');
@@ -11,6 +11,11 @@ var bodyParser = require('body-parser');
 var multer = require('multer');
 // telegram bot
 var bot = require(__dirname + '/lib/bot.js');
+//redis
+var redis = require('redis').createClient(process.env.REDIS_URL);
+redis.on("error", function (err) {
+    console.log("Error " + err);
+});
 
 // global settings
 var token = process.env.TOKEN || 'your example Telegram Bot token';
@@ -31,7 +36,7 @@ var oauth2 = require('simple-oauth2')({
     authorizationPath: '/oauth/v2/auth'
 });
 
-var cTraderBot = new bot(token, webhookUrl);
+var cTraderBot = new bot(app, token, webhookUrl);
 
 // engine to render HTML
 app.engine('.html', ejs.__express);
