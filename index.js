@@ -35,19 +35,11 @@ var oauth2 = require('simple-oauth2')({
     authorizationPath: '/oauth/v2/auth'
 });
 
-var redisClient = redis.createClient(process.env.REDIS_URL);
-redisClient.on("error", function (err) {
-    console.log("Error " + err);
-});
-
-var cTraderBot = new bot(app, redisClient, token, webhookUrl);
-
 // engine to render HTML
 app.engine('.html', ejs.__express);
 app.set('view engine', 'html');
 // set the port number
-//app.set('port', process.env.PORT || 8443);
-app.set('port', 8443);
+app.set('port', process.env.PORT || 8443);
 
 // Mount middlewares defaulted for root:
 // log all HTTP calls for debugging
@@ -56,6 +48,13 @@ app.use(morgan('combined'));
 app.use(express.static(__dirname + '/views'));
 // parse incoming formData into JSON
 app.use(bodyParser.json());
+
+// Redis initialization
+var redisClient = redis.createClient(process.env.REDIS_URL);
+redisClient.on("error", function (err) {
+    console.log("Error " + err);
+});
+var cTraderBot = new bot(app, redisClient, token, webhookUrl);
 
 // Initial page redirecting to Github
 app.get('/auth', function (req, res) {
