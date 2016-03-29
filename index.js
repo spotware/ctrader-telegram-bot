@@ -3,7 +3,7 @@ var url = require('url');
 // express
 var _ = require('lomath');
 var express = require('express');
-var app = module.exports = express();
+var app = express();
 // express middlewares
 var morgan = require('morgan');
 var ejs = require('ejs');
@@ -11,34 +11,28 @@ var bodyParser = require('body-parser');
 var multer = require('multer');
 // telegram bot
 var bot = require(__dirname + '/lib/bot.js');
+//redis
+var redis = require('redis');
 
 // global settings
 var token = process.env.TOKEN || 'your example Telegram Bot token';
+var port = process.env.PORT || 8443;
 var webhookUrl = process.env.WEBHOOK || 'your app webhook url';
 var clientID = process.env.CLIENT_ID || 'your Spotware Connect Client Public ID';
 var clientSecret = process.env.CLIENT_SECRET || 'your Spotware Connect Client Secret';
+var redisUrl = process.env.REDIS_URL || 'A redis instance URL for your app';
 
 console.log("token=" + token);
 console.log("webhookUrl=" + webhookUrl);
 console.log("clientID=" + clientID);
 console.log("clientSecret=" + clientSecret);
-
-var oauth2 = require('simple-oauth2')({
-    clientID: clientID,
-    clientSecret: clientSecret,
-    site: 'https://connect.spotware.com',
-    tokenPath: '/oauth/v2/token',
-    authorizationPath: '/oauth/v2/auth'
-});
-
-var cTraderBot = new bot(token, webhookUrl);
+console.log("redisUrl=" + redisUrl);
 
 // engine to render HTML
 app.engine('.html', ejs.__express);
 app.set('view engine', 'html');
 // set the port number
-app.set('port', process.env.PORT || 8443);
-
+app.set('port', port);
 // Mount middlewares defaulted for root:
 // log all HTTP calls for debugging
 app.use(morgan('combined'));
@@ -47,6 +41,26 @@ app.use(express.static(__dirname + '/views'));
 // parse incoming formData into JSON
 app.use(bodyParser.json());
 
+// Redis client initialization
+var redisClient = redis.createClient(process.env.REDIS_URL);
+redisClient.on("error", function (err) {
+    console.log("Error " + err);
+});
+// oAuth client initialization
+var oauth2 = require('simple-oauth2')({
+    clientID: clientID,
+    clientSecret: clientSecret,
+    site: 'https://connect.spotware.com',
+    tokenPath: '/oauth/v2/token',
+    authorizationPath: '/oauth/v2/auth'
+});
+// Bot initialization
+var cTraderBot = new bot({
+  app: app,
+  redisClient: redisClient,
+  token: token,
+  webhookUrl: webhookUrl
+});
 // Initial page redirecting to Github
 app.get('/auth', function (req, res) {
     // Authorization uri definition
@@ -107,7 +121,6 @@ app.route('/')
     .put(function(req, res) {
         res.send("you just called PUT\n")
     })
-
 
 // finally, listen to the specific port for any calls
 app.listen(app.get('port'), function() {
