@@ -46,7 +46,8 @@ var cTraderBot = new bot(app, redisClient, token, webhookUrl);
 app.engine('.html', ejs.__express);
 app.set('view engine', 'html');
 // set the port number
-app.set('port', process.env.PORT || 8443);
+//app.set('port', process.env.PORT || 8443);
+app.set('port', 8443);
 
 // Mount middlewares defaulted for root:
 // log all HTTP calls for debugging
