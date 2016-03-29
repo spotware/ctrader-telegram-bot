@@ -16,6 +16,7 @@ var redis = require('redis');
 
 // global settings
 var token = process.env.TOKEN || 'your example Telegram Bot token';
+var port = process.env.PORT || 8443;
 var webhookUrl = process.env.WEBHOOK || 'your app webhook url';
 var clientID = process.env.CLIENT_ID || 'your Spotware Connect Client Public ID';
 var clientSecret = process.env.CLIENT_SECRET || 'your Spotware Connect Client Secret';
@@ -27,20 +28,11 @@ console.log("clientID=" + clientID);
 console.log("clientSecret=" + clientSecret);
 console.log("redisUrl=" + redisUrl);
 
-var oauth2 = require('simple-oauth2')({
-    clientID: clientID,
-    clientSecret: clientSecret,
-    site: 'https://connect.spotware.com',
-    tokenPath: '/oauth/v2/token',
-    authorizationPath: '/oauth/v2/auth'
-});
-
 // engine to render HTML
 app.engine('.html', ejs.__express);
 app.set('view engine', 'html');
 // set the port number
-app.set('port', process.env.PORT || 8443);
-
+app.set('port', port);
 // Mount middlewares defaulted for root:
 // log all HTTP calls for debugging
 app.use(morgan('combined'));
@@ -49,13 +41,26 @@ app.use(express.static(__dirname + '/views'));
 // parse incoming formData into JSON
 app.use(bodyParser.json());
 
-// Redis initialization
+// Redis client initialization
 var redisClient = redis.createClient(process.env.REDIS_URL);
 redisClient.on("error", function (err) {
     console.log("Error " + err);
 });
-var cTraderBot = new bot(app, redisClient, token, webhookUrl);
-
+// oAuth client initialization
+var oauth2 = require('simple-oauth2')({
+    clientID: clientID,
+    clientSecret: clientSecret,
+    site: 'https://connect.spotware.com',
+    tokenPath: '/oauth/v2/token',
+    authorizationPath: '/oauth/v2/auth'
+});
+// Bot initialization
+var cTraderBot = new bot({
+  app: app,
+  redisClient: redisClient,
+  token: token,
+  webhookUrl: webhookUrl
+});
 // Initial page redirecting to Github
 app.get('/auth', function (req, res) {
     // Authorization uri definition
@@ -116,7 +121,6 @@ app.route('/')
     .put(function(req, res) {
         res.send("you just called PUT\n")
     })
-
 
 // finally, listen to the specific port for any calls
 app.listen(app.get('port'), function() {
