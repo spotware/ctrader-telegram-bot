@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "./node_modules/.bin/_mocha -u tdd -R spec"
+    "test": "istanbul cover --include-all-sources jasmine JASMINE_CONFIG_PATH=test/support/jasmine.json"
   },
   "repository": {
     "type": "git",
@@ -42,5 +42,9 @@
     "simple-oauth2": "^0.5.1",
     "telegram-bot-bootstrap": "0.0.15",
     "tls": "0.0.1"
+  },
+  "devDependencies": {
+    "istanbul": "0.4.2",
+    "jasmine": "2.4.1"
   }
 }
