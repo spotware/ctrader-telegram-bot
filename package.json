@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "istanbul cover --include-all-sources jasmine JASMINE_CONFIG_PATH=test/support/jasmine.json"
+    "test": "istanbul cover --include-all-sources node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=test/support/jasmine.json"
   },
   "repository": {
     "type": "git",
