@@ -15,9 +15,16 @@ describe('TradingAPI', function () {
 
     var tradingAPI;
 
-    it('sendSubscribeForSpotsRequest', function (done) {
+    beforeAll(function () {
         tradingAPI = new TradingAPI(params);
         tradingAPI.start();
+    });
+    it('sendSubscribeForSpotsRequest', function (done) {
         tradingAPI.sendSubscribeForSpotsRequest(accountId, symblolName, accessToken).then(done);
+    });
+    it('onSpotEvent', function (done) {
+        tradingAPI.sendSubscribeForSpotsRequest(accountId, symblolName, accessToken).then(function() {
+            tradingAPI.onSpotEvent(done);
+        });
     });
 });

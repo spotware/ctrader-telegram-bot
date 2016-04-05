@@ -18,13 +18,13 @@ var redis = require('redis');
 var token = process.env.TOKEN || 'your example Telegram Bot token';
 var port = process.env.PORT || 8443;
 var webhookUrl = process.env.WEBHOOK || 'your app webhook url';
-var clientID = process.env.CLIENT_ID || 'your Spotware Connect Client Public ID';
+var clientId = process.env.CLIENT_ID || 'your Spotware Connect Client Public ID';
 var clientSecret = process.env.CLIENT_SECRET || 'your Spotware Connect Client Secret';
 var redisUrl = process.env.REDIS_URL || 'A redis instance URL for your app';
 
 console.log("token=" + token);
 console.log("webhookUrl=" + webhookUrl);
-console.log("clientID=" + clientID);
+console.log("clientId=" + clientId);
 console.log("clientSecret=" + clientSecret);
 console.log("redisUrl=" + redisUrl);
 
@@ -48,7 +48,7 @@ redisClient.on("error", function (err) {
 });
 // oAuth client initialization
 var oauth2 = require('simple-oauth2')({
-    clientID: clientID,
+    clientID: clientId,
     clientSecret: clientSecret,
     site: 'https://connect.spotware.com',
     tokenPath: '/oauth/v2/token',
@@ -59,7 +59,9 @@ var cTraderBot = new bot({
   app: app,
   redisClient: redisClient,
   token: token,
-  webhookUrl: webhookUrl
+  webhookUrl: webhookUrl,
+  clientId: clientId,
+  clientSecret: clientSecret
 });
 // Initial page redirecting to Github
 app.get('/auth', function (req, res) {
