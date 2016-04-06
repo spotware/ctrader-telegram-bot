@@ -30,7 +30,8 @@
   "dependencies": {
     "bluebird": "^3.3.4",
     "body-parser": "^1.15.0",
-    "connect-js-api": "git+https://github.com/spotware/connect-js-api.git#2.1.0",
+    "connect-js-api": "spotware/connect-js-api.git#2.1.0",
+    "connect-protobuf-messages": "spotware/connect-protobuf-messages",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
     "lomath": "^0.3.0",
