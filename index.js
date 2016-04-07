@@ -94,6 +94,7 @@ app.get('/callback', function (req, res) {
             token = oauth2.accessToken.create(result);
             cTraderBot.saveToken(token, state);
             res.redirect('https://telegram.me/cTraderBot');
+            //res.redirect('https://web.telegram.org/#/im?p=@cTraderBot')'
         }
     } else {
         res.render('index');
