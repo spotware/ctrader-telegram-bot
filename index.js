@@ -93,7 +93,7 @@ app.get('/callback', function (req, res) {
             }
             token = oauth2.accessToken.create(result);
             cTraderBot.saveToken(token, state);
-            res.render('index');
+            res.redirect('https://telegram.me/cTraderBot');
         }
     } else {
         res.render('index');
