@@ -10,7 +10,7 @@ var ejs = require('ejs');
 var bodyParser = require('body-parser');
 var multer = require('multer');
 // telegram bot
-var bot = require(__dirname + '/lib/bot.js');
+var bot = require(__dirname + '/lib/bot2.js');
 //redis
 var redis = require('redis');
 

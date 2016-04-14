@@ -41,7 +41,8 @@
     "redis": "^2.6.0-0",
     "request": "^2.69.0",
     "simple-oauth2": "^0.5.1",
-    "telegram-bot-bootstrap": "0.0.15"
+    "telegram-bot-bootstrap": "0.0.15",
+    "telegram-node-bot": "^2.0.8"
   },
   "devDependencies": {
     "istanbul": "0.4.2",
