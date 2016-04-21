@@ -30,19 +30,18 @@
   "dependencies": {
     "bluebird": "^3.3.4",
     "body-parser": "^1.15.0",
+    "bot-brother": "sgologuzov/bot-brother",
     "connect-js-api": "spotware/connect-js-api.git#2.1.0",
     "connect-protobuf-messages": "spotware/connect-protobuf-messages",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
+    "js-yaml": "^3.6.0",
+    "lodash": "^4.11.1",
     "lomath": "^0.3.0",
     "morgan": "^1.7.0",
     "multer": "^1.1.0",
-    "node-emoji": "^1.2.1",
-    "redis": "^2.6.0-0",
     "request": "^2.69.0",
-    "simple-oauth2": "^0.5.1",
-    "telegram-bot-bootstrap": "0.0.15",
-    "telegram-node-bot": "^2.0.8"
+    "simple-oauth2": "^0.5.1"
   },
   "devDependencies": {
     "istanbul": "0.4.2",
