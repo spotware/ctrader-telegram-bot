@@ -70,6 +70,9 @@ app.get('/callback', function (req, res) {
                 console.log("Saving access token: " + token.token.access_token); 
                 ctx.session.access_token = token.token.access_token;
                 ctx.session.refresh_token = token.token.refresh_token;
+                ctx.sendMessage('main.authok').then(function () {
+                    return ctx.goBack();
+                });
             });
             res.redirect('https://telegram.me/cTraderBot');
         }

@@ -1,62 +1,27 @@
 button:
   auth: ':key: Вход в систему'
 
-  add: ':heavy_plus_sign: Добавить уведомление'
-  list: ':email: Список -
   settings: ':wrench: Настройки'
   back: ':arrow_left: Назад'
   locale: ':globe_with_meridians: Язык'
-  timezone: ':watch: Часовой пояс'
   remove: ':x: Удалить'
   cancel: ':negative_squared_cross_mark: Отмена'
-  like: ':heart_decoration: Мне нравится этот бот'
-  rate:
-    like: ":point_up: Я уже оценил"
-    later: ":hourglass: Я оценю попозже"
-    dislike: ":hankey: Я не буду оценивать"
 
 answer:
-  added: ':white_check_mark: Уведомление добавлено на <%=addedTime%>'
   success: ':ok_hand: Готово!'
-  incorrecttime: ':confused: Время задано некорректно.'
 
 main:
+  start: 'Добро пожаловать <%=user.first_name%>! Пожалуйста, войдите с вашим cTrader ID'
   auth: 'Перейдите по ссылке для аутентификации бота: https://ctrader-telegram-bot.herokuapp.com/auth?state=<%=oauthState%>'
+  authok: 'Ваш cTrader ID успешно аутентифицирован. Удачной торговли!'
 
-  time: 'Когда вам прислать уведомление?'
-  add: '<%=user.first_name%>, о чем вам напомнить?'
-  start: '<%=user.first_name%>, что я могу для вас сделать?'
-  remove: 'Чтобы удалить уведомление, введите его номер.'
-  nolist: 'У вас пока нет уведомлений.'
-  rate: |
-    <%=user.first_name%>, если вам понравился наш бот, пожалуйста, поставьте ему :star::star::star::star::star: здесь:
-    https://telegram.me/storebot?start=delorean_bot
   help: |
     Основные команды:
     /start - начать работу
-    /add - добавить уведомление
-    /list - список уведомлений
     /settings - настройки
-    /formats - доступные форматы задания даты
-    /rate - оценить бота
-  formats: |
-    Используйте следующие форматы:
-    - завтра
-    - завтра в 12.00
-    - 31.12.15 14:00
-    - послезавтра вечером в 7
-    - через 5 минут
-    - через час
-    - сегодня в 19.00
-    Также можете сразу использовать текст уведомления и время уведомления:
-    - Купить хлеб сегодня вечером в 7
-    - Выключить духовку через 10 мин
-
 
 settings:
   main: |
     Ваши настройки:
     Язык: <%=settings.locale%>
-    Часовой пояс: <%=settings.timezone%>
   locale: 'Пожалуйста, выберите ваш язык'
-  timezone: 'Пожалуйста, укажите ваш город или отправьте ваше местоположение, чтобы мы могли определить ваш часовой пояс.'
