@@ -1,4 +1,6 @@
 button:
+  auth: ':key: Log In'
+
   add: ':heavy_plus_sign: Add notification'
   list: ':email: Notifications list -
   settings: ':wrench: Settings'

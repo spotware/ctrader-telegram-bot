@@ -1,4 +1,6 @@
 button:
+  auth: ':key: Вход в систему'
+
   add: ':heavy_plus_sign: Добавить уведомление'
   list: ':email: Список -
   settings: ':wrench: Настройки'
@@ -20,6 +22,7 @@ answer:
 
 main:
   auth: 'Перейдите по ссылке для аутентификации бота: https://ctrader-telegram-bot.herokuapp.com/auth?state=<%=oauthState%>'
+
   time: 'Когда вам прислать уведомление?'
   add: '<%=user.first_name%>, о чем вам напомнить?'
   start: '<%=user.first_name%>, что я могу для вас сделать?'
