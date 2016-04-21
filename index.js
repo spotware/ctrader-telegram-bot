@@ -66,7 +66,8 @@ app.get('/callback', function (req, res) {
                 console.log('Access Token Error', error.message);
             }
             token = oauth2.accessToken.create(result);
-            bot.withContext(state, function (ctx) { 
+            bot.withContext(state, function (ctx) {
+                console.log("Saving access token: " + token.token.access_token); 
                 ctx.session.access_token = token.token.access_token;
                 ctx.session.refresh_token = token.token.refresh_token;
             });
