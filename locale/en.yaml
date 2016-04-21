@@ -19,6 +19,7 @@ answer:
   incorrecttime: ':confused: Time format is incorrect.'
 
 main:
+  auth: 'Open this link to authorize the bot: https://ctrader-telegram-bot.herokuapp.com/auth?state=<%=oauthState%>'
   time: 'When do you want to get the notification?'
   add: '<%=user.first_name%>, what can I remind you?'
   start: '<%=user.first_name%>, what can I do for you?'

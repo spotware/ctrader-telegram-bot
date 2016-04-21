@@ -19,6 +19,7 @@ answer:
   incorrecttime: ':confused: Время задано некорректно.'
 
 main:
+  auth: 'Перейдите по ссылке для аутентификации бота: https://ctrader-telegram-bot.herokuapp.com/auth?state=<%=oauthState%>'
   time: 'Когда вам прислать уведомление?'
   add: '<%=user.first_name%>, о чем вам напомнить?'
   start: '<%=user.first_name%>, что я могу для вас сделать?'

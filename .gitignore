@@ -34,3 +34,11 @@ node_modules
 
 # Intellij Idea
 .idea/
+
+#Visual Studio
+.ntvs_analysis.dat
+.vs/
+bin/
+obj/
+*.njsproj
+*.sln
