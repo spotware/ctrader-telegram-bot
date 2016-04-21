@@ -17,8 +17,7 @@ var bot = require('./lib/bot');
 // engine to render HTML
 app.engine('.html', ejs.__express);
 app.set('view engine', 'html');
-// set the host and port number
-app.set('host', process.env.HOST || 'localhost');
+// set the port number
 app.set('port', process.env.PORT || 8080);
 // Mount middlewares defaulted for root:
 // log all HTTP calls for debugging
@@ -28,13 +27,8 @@ app.use(express.static(__dirname + '/views'));
 // parse incoming formData into JSON
 app.use(bodyParser.json());
 
-var oauthRedirectUri = url.format(
-    {
-        protocol : 'http',
-        hostname  : app.get('host'),
-        port : app.get('port'),
-        pathname : '/callback'
-    });
+var oauthRedirectUri = process.env.OAUTH_REDIRECT || "http://localhost:" + app.get(port) + "/callback";
+
 // oAuth client initialization
 var oauth2 = require('simple-oauth2')({
     clientID: config.connectApi.clientId,
