@@ -27,7 +27,7 @@ app.use(express.static(__dirname + '/views'));
 // parse incoming formData into JSON
 app.use(bodyParser.json());
 
-var oauthRedirectUri = process.env.OAUTH_REDIRECT || "http://localhost:" + app.get(port) + "/callback";
+var oauthRedirect = process.env.OAUTH_REDIRECT || "http://localhost:" + app.get(port);
 
 // oAuth client initialization
 var oauth2 = require('simple-oauth2')({
@@ -42,7 +42,7 @@ var oauth2 = require('simple-oauth2')({
 app.get('/auth', function (req, res) {
     // Authorization uri definition
     var authorizationUri = oauth2.authCode.authorizeURL({
-        redirect_uri: oauthRedirectUri,
+        redirect_uri: url.resolve(oauthRedirect, '/callback')
         access_type: 'online',
         approval_prompt: 'auto',
         scope: 'trading',
@@ -58,7 +58,7 @@ app.get('/callback', function (req, res) {
     if (code && state) {
         oauth2.authCode.getToken({
             code: code,
-            redirect_uri: oauthRedirectUri
+            redirect_uri: url.resolve(oauthRedirect, '/callback')
         }, saveToken);
         
         function saveToken(error, result) {
