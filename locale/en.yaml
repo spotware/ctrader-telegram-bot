@@ -14,6 +14,7 @@ main:
   start: 'Welcome <%=user.first_name%>! Please log in with your cTrader ID'
   auth: 'Open this link to authorize the bot: https://ctrader-telegram-bot.herokuapp.com/auth?state=<%=oauthState%>'
   authok: 'Your cTrader ID is authenticated successfully. Goog luck in trading!'
+  accounts: 'Choose an account please'
 
   help: |
     General commands:
