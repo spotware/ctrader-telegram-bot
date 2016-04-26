@@ -15,6 +15,7 @@ main:
   auth: 'Перейдите по ссылке для аутентификации бота: https://ctrader-telegram-bot.herokuapp.com/auth?state=<%=oauthState%>'
   authok: 'Ваш cTrader ID успешно аутентифицирован. Удачной торговли!'
   accounts: 'Выберите счет, пожалуйста'
+  symbols: 'Выберите символ, пожалуйста'
 
   help: |
     Основные команды:
