@@ -1,5 +1,6 @@
 button:
   auth: ':key: Log In'
+  close: ':x:'
 
   settings: ':wrench: Settings'
   back: ':arrow_left: Back'
@@ -16,6 +17,7 @@ main:
   authok: 'Your cTrader ID is authenticated successfully. Goog luck in trading!'
   accounts: 'Choose an account please'
   symbols: 'Choose a symbol please'
+  positions: 'Positions'
 
   help: |
     General commands:

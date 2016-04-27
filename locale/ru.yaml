@@ -1,5 +1,6 @@
 button:
   auth: ':key: Вход в систему'
+  close: ':x:'
 
   settings: ':wrench: Настройки'
   back: ':arrow_left: Назад'
@@ -16,6 +17,7 @@ main:
   authok: 'Ваш cTrader ID успешно аутентифицирован. Удачной торговли!'
   accounts: 'Выберите счет, пожалуйста'
   symbols: 'Выберите символ, пожалуйста'
+  positions: 'Позиции'
 
   help: |
     Основные команды:
