@@ -11,6 +11,12 @@ button:
 answer:
   success: ':ok_hand: Готово!'
 
+event:
+  order:
+    filled: 'Your request to <%=tradeSide%> <%=volume%> of <%=symbolName%>  is being filled.'
+    cancelled: 'Your request to <%=tradeSide%> <%=volume%> of <%=symbolName%>  was cancelled.'
+    expired: 'Your request to <%=tradeSide%> <%=volume%> of <%=symbolName%>  was expired.'
+
 main:
   start: 'Добро пожаловать <%=user.first_name%>! Пожалуйста, войдите с вашим cTrader ID'
   auth: 'Перейдите по ссылке для аутентификации бота: https://ctrader-telegram-bot.herokuapp.com/auth?state=<%=oauthState%>'
