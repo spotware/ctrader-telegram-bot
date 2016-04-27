@@ -1,0 +1,30 @@
+button:
+  auth: ':key: Log In'
+  close: ':x:'
+
+  settings: ':wrench: Settings'
+  back: ':arrow_left: Back'
+  locale: ':globe_with_meridians: Language'
+  remove: ':x: Delete'
+  cancel: ':negative_squared_cross_mark: Cancel'
+
+answer:
+  success: ':ok_hand: OK!'
+
+main:
+  start: 'Welcome <%=user.first_name%>! Please log in with your cTrader ID'
+  auth: 'Open this link to authorize the bot: https://ctrader-telegram-bot.herokuapp.com/auth?state=<%=oauthState%>'
+  authok: 'Your cTrader ID is authenticated successfully. Goog luck in trading!'
+  accounts: 'Choose an account please'
+  symbols: 'Choose a symbol please'
+  positions: 'Positions'
+
+  help: |
+    General commands:
+    /start - start work
+
+settings:
+  main: |
+    Your settings:
+    Language: <%=settings.locale%>
+  locale: 'Choose your language, please'

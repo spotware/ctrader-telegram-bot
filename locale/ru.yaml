@@ -1,0 +1,31 @@
+button:
+  auth: ':key: Вход в систему'
+  close: ':x:'
+
+  settings: ':wrench: Настройки'
+  back: ':arrow_left: Назад'
+  locale: ':globe_with_meridians: Язык'
+  remove: ':x: Удалить'
+  cancel: ':negative_squared_cross_mark: Отмена'
+
+answer:
+  success: ':ok_hand: Готово!'
+
+main:
+  start: 'Добро пожаловать <%=user.first_name%>! Пожалуйста, войдите с вашим cTrader ID'
+  auth: 'Перейдите по ссылке для аутентификации бота: https://ctrader-telegram-bot.herokuapp.com/auth?state=<%=oauthState%>'
+  authok: 'Ваш cTrader ID успешно аутентифицирован. Удачной торговли!'
+  accounts: 'Выберите счет, пожалуйста'
+  symbols: 'Выберите символ, пожалуйста'
+  positions: 'Позиции'
+
+  help: |
+    Основные команды:
+    /start - начать работу
+    /settings - настройки
+
+settings:
+  main: |
+    Ваши настройки:
+    Язык: <%=settings.locale%>
+  locale: 'Пожалуйста, выберите ваш язык'

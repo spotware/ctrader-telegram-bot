@@ -31,3 +31,14 @@ node_modules
 
 # Optional REPL history
 .node_repl_history
+
+# Intellij Idea
+.idea/
+
+#Visual Studio
+.ntvs_analysis.dat
+.vs/
+bin/
+obj/
+*.njsproj
+*.sln

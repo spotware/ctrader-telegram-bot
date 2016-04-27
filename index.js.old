@@ -12,13 +12,14 @@ var multer = require('multer');
 // config
 var config = require('./lib/config.js');
 // telegram bot
-var bot = require('./lib/bot');
+var bot = require('./lib/bot.js');
+bot.listenUpdates();
 
 // engine to render HTML
 app.engine('.html', ejs.__express);
 app.set('view engine', 'html');
 // set the port number
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || 9443);
 // Mount middlewares defaulted for root:
 // log all HTTP calls for debugging
 app.use(morgan('combined'));
@@ -26,8 +27,6 @@ app.use(morgan('combined'));
 app.use(express.static(__dirname + '/views'));
 // parse incoming formData into JSON
 app.use(bodyParser.json());
-
-var oauthRedirect = process.env.OAUTH_REDIRECT || "http://localhost:" + app.get('port');
 
 // oAuth client initialization
 var oauth2 = require('simple-oauth2')({
@@ -42,7 +41,7 @@ var oauth2 = require('simple-oauth2')({
 app.get('/auth', function (req, res) {
     // Authorization uri definition
     var authorizationUri = oauth2.authCode.authorizeURL({
-        redirect_uri: url.resolve(oauthRedirect, '/callback'),
+        redirect_uri: url.resolve(config.bot.webHook.url, '/callback'),
         access_type: 'online',
         approval_prompt: 'auto',
         scope: 'trading',
@@ -54,36 +53,42 @@ app.get('/auth', function (req, res) {
 app.get('/callback', function (req, res) {
     var code = req.query.code;
     var state = req.query.state;
-    
+
     if (code && state) {
         oauth2.authCode.getToken({
             code: code,
-            redirect_uri: url.resolve(oauthRedirect, '/callback'),
+            redirect_uri: url.resolve(config.bot.webHook.url, '/callback')
         }, saveToken);
-        
+
         function saveToken(error, result) {
             if (error) {
                 console.log('Access Token Error', error.message);
             }
             token = oauth2.accessToken.create(result);
-            bot.withContext(state, function (ctx) {
-                console.log("Saving access token: " + token.token.access_token); 
-                ctx.session.access_token = token.token.access_token;
-                ctx.session.refresh_token = token.token.refresh_token;
-                ctx.sendMessage('main.authok').then(function () {
-                    return ctx.goBack();
-                });
-            });
+            bot.saveToken(token, state);
             res.redirect('https://telegram.me/cTraderBot');
         }
     } else {
         res.render('index');
     }
 });
-
-bot.listenUpdates();
+// route: concise way to group all HTTP methods for a path
+app.route('/')
+    .get(function(req, res) {
+        // console.log("you GET")
+        res.render('index')
+    })
+    .post(function(req, res) {
+        // send back to end req-res cycle
+        res.json('okay, received\n');
+        // robot handle as middleware for POST
+        //cTraderBot.handle(req, res)
+    })
+    .put(function(req, res) {
+        res.send("you just called PUT\n")
+    })
 
 // finally, listen to the specific port for any calls
-app.listen(app.get('port'), function () {
+app.listen(app.get('port'), function() {
     console.log('Node app is running on port', app.get('port'));
 });
