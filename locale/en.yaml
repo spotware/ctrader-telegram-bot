@@ -1,8 +1,17 @@
 button:
   auth: ':key: Log In'
   close: ':x:'
-
+  sell: ':arrow_lower_right: Sell <%=bidPrice%>'
+  volume: '<%=volume%>'
+  buy: 'Buy <%=askPrice%> :arrow_upper_right:'
+  symbol: '<%=symbolName%>'
+  chart: ':chart_with_upwards_trend: Chart'
+  positions: 'Positions'
+  orders: 'Orders'
+  account: ':information_source: <%=accountLabel%>'
   settings: ':wrench: Settings'
+  exit: ':door: Log Out'
+
   back: ':arrow_left: Back'
   locale: ':globe_with_meridians: Language'
   remove: ':x: Delete'
@@ -23,7 +32,8 @@ main:
   authok: 'Your cTrader ID is authenticated successfully. Goog luck in trading!'
   accounts: 'Choose an account please'
   symbols: 'Choose a symbol please'
-  positions: 'Positions'
+  positions: 'You have <%=positionsCount%> opened positions'
+  exit: 'You are logged out'
 
   help: |
     General commands:
