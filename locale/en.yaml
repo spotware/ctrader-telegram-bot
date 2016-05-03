@@ -32,6 +32,7 @@ main:
   authok: 'Your cTrader ID is authenticated successfully. Goog luck in trading!'
   accounts: 'Choose an account please'
   symbols: 'Choose a symbol please'
+  volumes: 'Choose a volume please'
   positions: 'You have <%=positionsCount%> opened positions'
   exit: 'You are logged out'
 
