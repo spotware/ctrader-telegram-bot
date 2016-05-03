@@ -71,7 +71,7 @@ app.get('/callback', function (req, res) {
                 ctx.session.access_token = token.token.access_token;
                 ctx.session.refresh_token = token.token.refresh_token;
                 ctx.sendMessage('main.authok').then(function () {
-                    return ctx.goBack();
+                    return ctx.go('start');
                 });
             });
             res.redirect('https://telegram.me/cTraderBot');

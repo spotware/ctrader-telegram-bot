@@ -1,8 +1,17 @@
 button:
   auth: ':key: Log In'
   close: ':x:'
-
+  sell: ':arrow_lower_right: Sell <%=bidPrice%>'
+  volume: '<%=volume%>'
+  buy: 'Buy <%=askPrice%> :arrow_upper_right:'
+  symbol: '<%=symbolName%>'
+  chart: ':chart_with_upwards_trend: Chart'
+  positions: 'Positions'
+  orders: 'Orders'
+  account: ':information_source: <%=accountLabel%>'
   settings: ':wrench: Settings'
+  exit: ':door: Log Out'
+
   back: ':arrow_left: Back'
   locale: ':globe_with_meridians: Language'
   remove: ':x: Delete'
@@ -11,13 +20,20 @@ button:
 answer:
   success: ':ok_hand: OK!'
 
+event:
+  order:
+    filled: 'Your request to <%=tradeSide%> <%=volume%> of <%=symbolName%> is being filled.'
+    cancelled: 'Your request to <%=tradeSide%> <%=volume%> of <%=symbolName%> was cancelled.'
+    expired: 'Your request to <%=tradeSide%> <%=volume%> of <%=symbolName%> was expired.'
+
 main:
   start: 'Welcome <%=user.first_name%>! Please log in with your cTrader ID'
   auth: 'Open this link to authorize the bot: https://ctrader-telegram-bot.herokuapp.com/auth?state=<%=oauthState%>'
   authok: 'Your cTrader ID is authenticated successfully. Goog luck in trading!'
   accounts: 'Choose an account please'
   symbols: 'Choose a symbol please'
-  positions: 'Positions'
+  positions: 'You have <%=positionsCount%> opened positions'
+  exit: 'You are logged out'
 
   help: |
     General commands:

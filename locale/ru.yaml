@@ -1,8 +1,17 @@
 button:
   auth: ':key: Вход в систему'
   close: ':x:'
-
+  sell: ':arrow_lower_right: Sell <%=bidPrice%>'
+  volume: '<%=volume%>'
+  buy: 'Buy <%=askPrice%> :arrow_upper_right:'
+  symbol: '<%=symbolName%>'
+  chart: ':chart_with_upwards_trend: График'
+  positions: 'Позиции'
+  orders: 'Ордера'
+  account: ':information_source: <%=accountLabel%>'
   settings: ':wrench: Настройки'
+  exit: ':door: Выход'
+
   back: ':arrow_left: Назад'
   locale: ':globe_with_meridians: Язык'
   remove: ':x: Удалить'
@@ -11,13 +20,20 @@ button:
 answer:
   success: ':ok_hand: Готово!'
 
+event:
+  order:
+    filled: 'Your request to <%=tradeSide%> <%=volume%> of <%=symbolName%>  is being filled.'
+    cancelled: 'Your request to <%=tradeSide%> <%=volume%> of <%=symbolName%>  was cancelled.'
+    expired: 'Your request to <%=tradeSide%> <%=volume%> of <%=symbolName%>  was expired.'
+
 main:
   start: 'Добро пожаловать <%=user.first_name%>! Пожалуйста, войдите с вашим cTrader ID'
   auth: 'Перейдите по ссылке для аутентификации бота: https://ctrader-telegram-bot.herokuapp.com/auth?state=<%=oauthState%>'
   authok: 'Ваш cTrader ID успешно аутентифицирован. Удачной торговли!'
   accounts: 'Выберите счет, пожалуйста'
   symbols: 'Выберите символ, пожалуйста'
-  positions: 'Позиции'
+  positions: 'У вас <%=positionsCount%> открытых позиций'
+  exit: 'Вы вышли из системы'
 
   help: |
     Основные команды:
