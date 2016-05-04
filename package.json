@@ -31,7 +31,7 @@
     "bluebird": "^3.3.5",
     "body-parser": "^1.15.0",
     "bot-brother": "^1.0.48",
-    "connect-js-api": "github:spotware/connect-js-api#2.1.0",
+    "connect-js-api": "github:spotware/connect-js-api",
     "connect-protobuf-messages": "github:spotware/connect-protobuf-messages",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
