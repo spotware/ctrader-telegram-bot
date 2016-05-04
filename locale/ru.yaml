@@ -22,12 +22,13 @@ answer:
 
 event:
   order:
-    filled: 'Your request to <%=tradeSide%> <%=volume%> of <%=symbolName%>  is being filled.'
-    cancelled: 'Your request to <%=tradeSide%> <%=volume%> of <%=symbolName%>  was cancelled.'
-    expired: 'Your request to <%=tradeSide%> <%=volume%> of <%=symbolName%>  was expired.'
+    filled: 'Your request to <%=event.tradeSide%> <%=event.volume%> of <%=event.symbolName%>  is being filled.'
+    cancelled: 'Your request to <%=event.tradeSide%> <%=event.volume%> of <%=event.symbolName%>  was cancelled.'
+    expired: 'Your request to <%=event.tradeSide%> <%=event.volume%> of <%=event.symbolName%>  was expired.'
 
 main:
-  start: 'Добро пожаловать <%=user.first_name%>! Пожалуйста, войдите с вашим cTrader ID'
+  not_authenticated: 'Добро пожаловать <%=user.first_name%>! Пожалуйста, войдите с вашим cTrader ID'
+  start: 'cTrader Bot приветствует вас!'
   auth: 'Перейдите по ссылке для аутентификации бота: https://ctrader-telegram-bot.herokuapp.com/auth?state=<%=oauthState%>'
   authok: 'Ваш cTrader ID успешно аутентифицирован. Удачной торговли!'
   accounts: 'Выберите счет, пожалуйста'

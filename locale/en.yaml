@@ -22,12 +22,13 @@ answer:
 
 event:
   order:
-    filled: 'Your request to <%=tradeSide%> <%=volume%> of <%=symbolName%> is being filled.'
-    cancelled: 'Your request to <%=tradeSide%> <%=volume%> of <%=symbolName%> was cancelled.'
-    expired: 'Your request to <%=tradeSide%> <%=volume%> of <%=symbolName%> was expired.'
+    filled: 'Your request to <%=event.tradeSide%> <%=event.volume%> of <%=event.symbolName%> is being filled.'
+    cancelled: 'Your request to <%=event.tradeSide%> <%=volume%> of <%=event.symbolName%> was cancelled.'
+    expired: 'Your request to <%=event.tradeSide%> <%=event.volume%> of <%=event.symbolName%> was expired.'
 
 main:
-  start: 'Welcome <%=user.first_name%>! Please log in with your cTrader ID'
+  not_authenticated: 'Welcome <%=user.first_name%>! Please log in with your cTrader ID'
+  start: 'cTrader Bot welcomes you'
   auth: 'Open this link to authorize the bot: https://ctrader-telegram-bot.herokuapp.com/auth?state=<%=oauthState%>'
   authok: 'Your cTrader ID is authenticated successfully. Goog luck in trading!'
   accounts: 'Choose an account please'
