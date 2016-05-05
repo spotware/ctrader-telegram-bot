@@ -1,9 +1,9 @@
 button:
   auth: ':key: Вход в систему'
   close: ':x:'
-  sell: ':arrow_lower_right: Sell <%=bidPrice%>'
+  sell: 'Sell :arrow_lower_right:'
   volume: '<%=volume%>'
-  buy: 'Buy <%=askPrice%> :arrow_upper_right:'
+  buy: ':arrow_upper_right: Buy'
   symbol: '<%=symbolName%>'
   chart: ':chart_with_upwards_trend: График'
   positions: 'Позиции'
@@ -16,6 +16,10 @@ button:
   locale: ':globe_with_meridians: Язык'
   remove: ':x: Удалить'
   cancel: ':negative_squared_cross_mark: Отмена'
+  position:
+    reverse: ':arrow_heading_down: Реверсировать'
+    double: ':arrow_up: Удвоить'
+    close: ':x: Закрыть'
 
 answer:
   success: ':ok_hand: Готово!'

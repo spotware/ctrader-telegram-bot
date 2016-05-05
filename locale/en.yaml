@@ -1,9 +1,9 @@
 button:
   auth: ':key: Log In'
   close: ':x:'
-  sell: ':arrow_lower_right: Sell <%=bidPrice%>'
+  sell: 'Sell :arrow_lower_right:'
   volume: '<%=volume%>'
-  buy: 'Buy <%=askPrice%> :arrow_upper_right:'
+  buy: ':arrow_upper_right: Buy'
   symbol: '<%=symbolName%>'
   chart: ':chart_with_upwards_trend: Chart'
   positions: 'Positions'
@@ -11,11 +11,15 @@ button:
   account: ':information_source: <%=accountLabel%>'
   settings: ':wrench: Settings'
   exit: ':door: Log Out'
-
   back: ':arrow_left: Back'
   locale: ':globe_with_meridians: Language'
   remove: ':x: Delete'
   cancel: ':negative_squared_cross_mark: Cancel'
+  position:
+    reverse: ':arrow_heading_down: Reverse'
+    double: ':arrow_up: Double'
+    close: ':x: Close'
+
 
 answer:
   success: ':ok_hand: OK!'
