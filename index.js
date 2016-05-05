@@ -81,6 +81,13 @@ app.get('/callback', function (req, res) {
     }
 });
 
+// Callback service parsing the authorization token and asking for the access token
+app.get('/chart', function (req, res) {
+    res.setHeader('Content-Type', 'image/svg+xml');
+    res.sendFile(__dirname + '/views/img/chart.svg');
+});
+
+
 bot.listenUpdates();
 
 // finally, listen to the specific port for any calls
