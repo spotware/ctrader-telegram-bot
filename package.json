@@ -34,7 +34,7 @@
     "connect-js-adapter-tls": "github:spotware/connect-js-adapter-tls",
     "connect-js-api": "github:spotware/connect-js-api",
     "connect-js-encode-decode": "github:spotware/connect-js-encode-decode",
-    "connect-protobuf-messages": "github:spotware/connect-protobuf-messages",
+    "connect-protobuf-messages": "github:spotware/connect-protobuf-messages#1.1.0",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
     "js-yaml": "^3.6.0",
