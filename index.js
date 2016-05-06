@@ -18,7 +18,7 @@ var bot = require('./lib/bot');
 app.engine('.html', ejs.__express);
 app.set('view engine', 'html');
 // set the port number
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || 8443);
 // Mount middlewares defaulted for root:
 // log all HTTP calls for debugging
 app.use(morgan('combined'));
@@ -81,12 +81,19 @@ app.get('/callback', function (req, res) {
     }
 });
 
-// Callback service parsing the authorization token and asking for the access token
-app.get('/chart', function (req, res) {
-    res.setHeader('Content-Type', 'image/svg+xml');
-    res.sendFile(__dirname + '/views/img/chart.svg');
-});
-
+// route: concise way to group all HTTP methods for a path
+app.route('/')
+    .get(function(req, res) {
+        // console.log("you GET")
+        res.render('index')
+    })
+    .post(function(req, res) {
+        // robot handle as middleware for POST
+        bot.api._webHook._requestListener(req, res);
+    })
+    .put(function(req, res) {
+        res.send("you just called PUT\n")
+    });
 
 bot.listenUpdates();
 
