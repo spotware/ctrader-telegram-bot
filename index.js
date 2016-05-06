@@ -97,6 +97,7 @@ app.route('/')
         res.send("you just called PUT\n")
     });
 bot.listenUpdates();
+bot.api.setWebHook(process.env.WEBHOOK);
 
 // finally, listen to the specific port for any calls
 app.listen(app.get('port'), function () {
