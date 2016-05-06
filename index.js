@@ -91,7 +91,6 @@ app.route('/')
         res.send("OK\n");
         // robot handle as middleware for POST
         //bot.api._webHook._requestListener(req, res);
-        console.log(req.body);
         bot.api._processUpdate(req.body);
     })
     .put(function(req, res) {
