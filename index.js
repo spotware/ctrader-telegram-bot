@@ -85,16 +85,17 @@ app.get('/callback', function (req, res) {
 app.route('/')
     .get(function(req, res) {
         // console.log("you GET")
-        res.render('index')
+        res.render('index');
     })
     .post(function(req, res) {
-        res.send("you just called POST\n")
+        res.send("OK\n");
         // robot handle as middleware for POST
         //bot.api._webHook._requestListener(req, res);
+        console.log(req.body);
         bot.api._processUpdate(req.body);
     })
     .put(function(req, res) {
-        res.send("you just called PUT\n")
+        res.send("you just called PUT\n");
     });
 bot.listenUpdates();
 bot.api.setWebHook(process.env.WEBHOOK);
