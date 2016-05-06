@@ -82,21 +82,20 @@ app.get('/callback', function (req, res) {
 });
 
 // route: concise way to group all HTTP methods for a path
-/*
 app.route('/')
     .get(function(req, res) {
         // console.log("you GET")
         res.render('index')
     })
     .post(function(req, res) {
+        res.send("you just called POST\n")
         // robot handle as middleware for POST
         //bot.api._webHook._requestListener(req, res);
-        bot.api._processUpdate(update);
+        //bot.api._processUpdate(update);
     })
     .put(function(req, res) {
         res.send("you just called PUT\n")
     });
-*/
 bot.listenUpdates();
 
 // finally, listen to the specific port for any calls
