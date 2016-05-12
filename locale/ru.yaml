@@ -20,6 +20,8 @@ button:
     reverse: ':arrow_heading_down: Реверсировать'
     double: ':arrow_up: Удвоить'
     close: ':x: Закрыть'
+  pendingOrder:
+    close: ':x: Удалить'
 
 answer:
   success: ':ok_hand: Готово!'
@@ -39,6 +41,7 @@ main:
   symbols: 'Выберите символ, пожалуйста'
   volumes: 'Выберите объем, пожалуйста'
   positions: 'У вас <%=positionsCount%> открытых позиций'
+  pendingOrders: 'У вас <%=pendingOrdersCount%> ордеров'
   exit: 'Вы вышли из системы'
 
   help: |
