@@ -19,7 +19,8 @@ button:
     reverse: ':arrow_heading_down: Reverse'
     double: ':arrow_up: Double'
     close: ':x: Close'
-
+  pendingOrder:
+    close: ':x: Cancel'
 
 answer:
   success: ':ok_hand: OK!'
@@ -39,6 +40,7 @@ main:
   symbols: 'Choose a symbol please'
   volumes: 'Choose a volume please'
   positions: 'You have <%=positionsCount%> opened positions'
+  pendingOrders: 'You have <%=pendingOrdersCount%> pending orders'
   exit: 'You are logged out'
 
   help: |
